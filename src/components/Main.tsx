@@ -1,8 +1,11 @@
 import { Box } from '@chakra-ui/react';
+import GameCard from './GameCard';
 
 const Main = () => {
   return (
-      <Box >Main</Box>
+    <Box>
+      <GameCard />
+    </Box>
   );
 };
 
