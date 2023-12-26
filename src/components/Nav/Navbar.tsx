@@ -6,7 +6,7 @@ import MobileNav from './MobileNav.tsx';
 
 const Navbar = () => {
   return (
-    <Box fontSize={['sm', 'md', 'lg', 'xl']} width='100%' px='2%' py='10px'>
+    <Box fontSize={['sm', 'md', 'lg', 'xl']} width='100%' py='10px'>
       <Flex w='100%' alignItems='center'>
         <Box display='flex' alignItems='center'>
           <Box cursor='pointer' display='flex' alignItems='center'>
