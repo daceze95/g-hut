@@ -17,10 +17,11 @@ const useFetch = () => {
     const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
+        const controller = new AbortController()
         setLoading(true)
         const fetchData = async () => {
             try {
-                const result = await ApiClient.get<FetchGameResponse>('/games');
+                const result = await ApiClient.get<FetchGameResponse>('/games', { signal: controller.signal});
                 setGames(result.data.results);
                 setLoading(false);
             } catch (error) {
@@ -31,6 +32,8 @@ const useFetch = () => {
         }
 
         fetchData();
+
+        return () => controller.abort();
     }, [])
     return { games, error, isLoading }
 }
