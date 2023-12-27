@@ -4,11 +4,11 @@ import Aside from '../Aside';
 import Navbar from '../Nav/Navbar';
 import Footer from '../Footer';
 
-interface Props{
-    children: ReactNode;
+interface Props {
+  children: ReactNode;
 }
 
-const Layout = ({children}:Props) => {
+const Layout = ({ children }: Props) => {
   return (
     <Grid
       templateAreas={{

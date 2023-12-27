@@ -5,6 +5,7 @@ import { CanceledError } from "axios";
 export interface Game {
     id: number;
     name: string;
+    background_image: string;
 }
 export interface FetchGameResponse {
     count: number;
@@ -21,11 +22,11 @@ const useFetch = () => {
         setLoading(true)
         const fetchData = async () => {
             try {
-                const result = await ApiClient.get<FetchGameResponse>('/games', { signal: controller.signal});
+                const result = await ApiClient.get<FetchGameResponse>('/games', {signal: controller.signal});
                 setGames(result.data.results);
                 setLoading(false);
             } catch (error) {
-                if(error instanceof CanceledError) return;
+                if (error instanceof CanceledError) return;
                 setError((error as string));
                 setLoading(false);
             }

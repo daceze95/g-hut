@@ -1,12 +1,7 @@
-import { Box } from '@chakra-ui/react';
-import GameCard from './GameCard';
+import GameGrid from './GameGrid';
 
 const Main = () => {
-  return (
-    <Box>
-      <GameCard />
-    </Box>
-  );
+  return <GameGrid />;
 };
 
 export default Main;
