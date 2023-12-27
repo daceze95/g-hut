@@ -9,13 +9,13 @@ import {
   Icon,
   useDisclosure,
 } from '@chakra-ui/react';
-import React from 'react';
+import { RefObject, useRef } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { navItems } from '../../constant';
 
 const MobileNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = React.useRef();
+  const btnRef: RefObject<HTMLDivElement> = useRef(null);
   return (
     <>
       <Box display={{ base: 'block', md: 'none' }} ml='1em'>
