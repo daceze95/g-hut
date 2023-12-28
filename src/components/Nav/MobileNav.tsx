@@ -12,8 +12,9 @@ import {
 import { RefObject, useRef } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { navItems } from '../../constant';
+import { ToggleModeProps } from './ToggleModeBtn';
 
-const MobileNav = () => {
+const MobileNav = ({ colorMode, toggleColorMode }: ToggleModeProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef: RefObject<HTMLDivElement> = useRef(null);
   return (
@@ -32,17 +33,22 @@ const MobileNav = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerBody>
-            <Box display='flex' justifyContent='center' mt='5em'>
+            <Box
+              display='flex'
+              flexDir='column'
+              justifyContent='center'
+              gap='5'
+              mt='5em'>
               {navItems.map((navItem) =>
                 navItem.id !== 3 ? (
-                  <Button
-                    as='a'
-                    key={navItem.id}
-                    cursor='pointer'
-                    ml={navItem.id !== 1 ? '1em' : 0}>
+                  <Button as='a' key={navItem.id} cursor='pointer'>
                     {navItem.label}
                   </Button>
-                ) : null
+                ) : (
+                  <Button onClick={toggleColorMode}>
+                    Toggle {colorMode === 'light' ? 'Dark' : 'Light'} Mode
+                  </Button>
+                )
               )}
             </Box>
           </DrawerBody>
