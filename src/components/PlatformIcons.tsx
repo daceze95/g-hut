@@ -29,7 +29,7 @@ const PlatformIcons = ({game}:gameProps) => {
       Web: BsGlobe,
     };
   return (
-    <HStack mt='2'>
+    <HStack >
       {game.parent_platforms.map((pp) => (
         <Icon
           as={iconMap[pp.platform.name]}

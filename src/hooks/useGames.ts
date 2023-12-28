@@ -9,7 +9,8 @@ export interface Game {
     id: number;
     name: string;
     background_image: string;
-    parent_platforms: Platform[]
+    parent_platforms: Platform[];
+    metacritic: number
 }
 
 const useGames = () => useFetchData<Game>('/games')
