@@ -6,8 +6,9 @@ import GameCardContainer from './GameCardContainer';
 import GameHeader from './GameHeader';
 import PlatformDropDownList from './PlatformDropDownList';
 import { useState } from 'react';
+import { Genre } from '../hooks/useGenres';
 export interface genreNameProps {
-  genreName: string;
+  genreName: Genre | null ;
   usePlatformName?: string;
 }
 const GameGrid = ({ genreName }: genreNameProps) => {
