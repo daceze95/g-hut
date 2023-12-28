@@ -15,7 +15,7 @@ const Layout = ({ GenreList, GameGrid }: Props) => {
         lg: `"header header" "aside main" "footer footer"`,
       }}
       templateColumns={{
-        base: `1fr`,
+        base: `"1fr"`,
         lg: `"200px" "1fr"`,
       }}
       px='2%'>
