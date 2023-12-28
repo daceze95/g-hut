@@ -10,7 +10,7 @@ const Home = () => {
   const getGenre = (genre:Genre) => {
     setGenre(genre);
   }
-  return <Layout GenreList={<GenreList getGenre={getGenre}/>} GameGrid={<GameGrid genreName={genre}/>} />;
+  return <Layout GenreList={<GenreList selectedGenre={genre} getGenre={getGenre}/>} GameGrid={<GameGrid genreName={genre}/>} />;
 };
 
 export default Home;
