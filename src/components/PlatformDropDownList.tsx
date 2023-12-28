@@ -37,7 +37,6 @@ const PlatformDropDownList = ({ getPlatformName }: Props) => {
         transition='all 0.2s'
         borderRadius='md'
         as={Button}
-        bg='#262626'
         _hover={{ color: 'gray.400' }}
         _expanded={{ bg: 'blue.400' }}
         rightIcon={
