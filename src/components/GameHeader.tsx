@@ -1,13 +1,16 @@
-import { Box, Heading, Text } from "@chakra-ui/react"
+import { Box, Heading, Text } from '@chakra-ui/react';
+import { genreNameProps } from './GameGrid';
 
-const GameHeader = () => {
+const GameHeader = ({ genreName }: genreNameProps) => {
   return (
     <Box mb='5'>
-        <Heading>
-            <Text fontSize='xxx-large' fontWeight='bold'>Games</Text>
-        </Heading>
+      <Heading>
+        <Text fontSize='xxx-large' fontWeight='bold'>
+          {genreName ? genreName : ''} Games
+        </Text>
+      </Heading>
     </Box>
-      )
-}
+  );
+};
 
-export default GameHeader
+export default GameHeader;

@@ -2,8 +2,14 @@ import { HStack, Image, List, ListItem, Text } from '@chakra-ui/react';
 import useGenres from '../hooks/useGenres';
 import { getOptimizedImage } from '../services/getOptimizedImage';
 import GenreListSkeleton from './GenreListSkeleton';
+import { useState } from 'react';
 
-const GenreList = () => {
+interface Props {
+  getGenre: (name: string) => void;
+}
+
+const GenreList = ({ getGenre }: Props) => {
+  const [active, setActive] = useState<string>('');
   const { response: genres, error, isLoading } = useGenres();
   const skeletons = [1, 2, 3, 4, 5, 6];
   if (error) return;
@@ -25,7 +31,13 @@ const GenreList = () => {
               alt={genre.name}
               borderRadius='8'
             />
-            <Text fontSize='large'>{genre.name}</Text>
+            <Text
+              fontSize='large'
+              fontWeight={active === genre.name ? 'bold' : ''}
+              onClick={() => (getGenre(genre.name), setActive(genre.name))}
+              cursor='pointer'>
+              {genre.name}
+            </Text>
           </HStack>
         </ListItem>
       ))}

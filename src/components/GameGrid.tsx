@@ -4,8 +4,10 @@ import GameCard from './GameCard';
 import CardSkeleton from './CardSkeleton';
 import GameCardContainer from './GameCardContainer';
 import GameHeader from './GameHeader';
-
-const GameGrid = () => {
+export interface genreNameProps {
+  genreName: string;
+}
+const GameGrid = ({ genreName }: genreNameProps) => {
   const { response: games, error, isLoading } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6];
   if (error)
@@ -14,7 +16,7 @@ const GameGrid = () => {
     );
   return (
     <>
-      <GameHeader />
+      <GameHeader genreName={genreName} />
       <SimpleGrid
         columns={{
           base: 1,
