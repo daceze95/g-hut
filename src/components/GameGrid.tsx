@@ -7,7 +7,7 @@ import GameCardContainer from './GameCardContainer';
 const GameGrid = () => {
   const { response:games, error, isLoading } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6];
-  if (error) return <Box> An error occurred please refresh the page</Box>;
+  if (error) return <Box textAlign='center'> An error occurred please refresh the page</Box>;
   return (
     <SimpleGrid
       columns={{
