@@ -1,11 +1,11 @@
-import { Box, SimpleGrid} from '@chakra-ui/react';
-import useFetch from '../hooks/useFetch';
+import { Box, SimpleGrid } from '@chakra-ui/react';
+import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import CardSkeleton from './CardSkeleton';
 import GameCardContainer from './GameCardContainer';
 
 const GameGrid = () => {
-  const { games, error, isLoading } = useFetch();
+  const { games, error, isLoading } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6];
   if (error) return <Box> An error occurred please refresh the page</Box>;
   return (

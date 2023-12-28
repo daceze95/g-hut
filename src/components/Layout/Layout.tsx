@@ -1,14 +1,13 @@
-import { ReactNode } from 'react';
 import { Grid, GridItem, Show } from '@chakra-ui/react';
-import Aside from '../Aside';
 import Navbar from '../Nav/Navbar';
 import Footer from '../Footer';
 
 interface Props {
-  children: ReactNode;
+  GenreList: JSX.Element;
+  GameGrid: JSX.Element;
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ GenreList, GameGrid }: Props) => {
   return (
     <Grid
       templateAreas={{
@@ -26,12 +25,12 @@ const Layout = ({ children }: Props) => {
 
       <Show above='lg'>
         <GridItem area='aside'>
-          <Aside />
+          {GenreList}
         </GridItem>
       </Show>
 
       <GridItem area='main'>
-        {children}
+        {GameGrid}
       </GridItem>
       <GridItem area='footer'>
         <Footer />

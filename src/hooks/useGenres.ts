@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import { ApiClient } from "../services/api-client";
 import { CanceledError } from "axios";
 
-export interface Game {
+export interface Genre {
     id: number;
     name: string;
-    background_image: string;
+    image_background: string;
 }
-export interface FetchGameResponse {
+export interface FetchGenreResponse {
     count: number;
-    results: Game[];
+    results: Genre[];
 }
 
-const useFetch = () => {
-    const [games, setGames] = useState<Game[]>([]);
+const useGenres = () => {
+    const [genres, setGenres] = useState<Genre[]>([]);
     const [error, setError] = useState<string>('');
     const [isLoading, setLoading] = useState(false);
 
@@ -22,8 +22,8 @@ const useFetch = () => {
         setLoading(true)
         const fetchData = async () => {
             try {
-                const result = await ApiClient.get<FetchGameResponse>('/games', {signal: controller.signal});
-                setGames(result.data.results);
+                const result = await ApiClient.get<FetchGenreResponse>('/genres', { signal: controller.signal });
+                setGenres(result.data.results);
                 setLoading(false);
             } catch (error) {
                 if (error instanceof CanceledError) return;
@@ -36,7 +36,7 @@ const useFetch = () => {
 
         return () => controller.abort();
     }, [])
-    return { games, error, isLoading }
+    return { genres, error, isLoading }
 }
 
-export default useFetch
+export default useGenres

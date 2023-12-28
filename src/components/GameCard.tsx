@@ -5,9 +5,9 @@ import {
   Flex,
   Heading,
   Image,
-  Text
+  Text,
 } from '@chakra-ui/react';
-import { Game } from '../hooks/useFetch';
+import { Game } from '../hooks/useGames';
 import { getOptimizedImage } from '../services/getOptimizedImage';
 
 interface Props {
