@@ -5,7 +5,7 @@ import { getOptimizedImage } from '../services/getOptimizedImage';
 const GenreList = () => {
   const { response: genres } = useGenres();
   return (
-    <List>
+    <List paddingRight='3'>
       {genres.map((genre) => (
         <ListItem key={genre.id} py='5px'>
           <HStack>
