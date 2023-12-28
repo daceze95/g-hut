@@ -45,7 +45,7 @@ const MobileNav = ({ colorMode, toggleColorMode }: ToggleModeProps) => {
                     {navItem.label}
                   </Button>
                 ) : (
-                  <Button onClick={toggleColorMode}>
+                  <Button key={navItem.id} onClick={toggleColorMode}>
                     Toggle {colorMode === 'light' ? 'Dark' : 'Light'} Mode
                   </Button>
                 )

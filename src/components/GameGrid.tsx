@@ -1,22 +1,32 @@
-import { Box, SimpleGrid } from '@chakra-ui/react';
+import { Box, SimpleGrid, Stack } from '@chakra-ui/react';
 import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import CardSkeleton from './CardSkeleton';
 import GameCardContainer from './GameCardContainer';
 import GameHeader from './GameHeader';
+import PlatformDropDownList from './PlatformDropDownList';
+import { useState } from 'react';
 export interface genreNameProps {
   genreName: string;
+  usePlatformName?: string;
 }
 const GameGrid = ({ genreName }: genreNameProps) => {
   const { response: games, error, isLoading } = useGames();
+  const [usePlatformName, setUsePlatformName] = useState('');
   const skeletons = [1, 2, 3, 4, 5, 6];
+  const getPlatformName = (name: string) => {
+    setUsePlatformName(name);
+  };
   if (error)
     return (
       <Box textAlign='center'> An error occurred please refresh the page</Box>
     );
   return (
     <>
-      <GameHeader genreName={genreName} />
+      <Stack mb='20px'>
+        <GameHeader genreName={genreName} usePlatformName={usePlatformName} />
+        <PlatformDropDownList getPlatformName={getPlatformName} />
+      </Stack>
       <SimpleGrid
         columns={{
           base: 1,
