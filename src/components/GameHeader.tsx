@@ -5,7 +5,10 @@ const GameHeader = ({ genreName }: genreNameProps) => {
   return (
     <Box mb='5'>
       <Heading>
-        <Text fontSize='xxx-large' fontWeight='bold'>
+        <Text fontSize={{
+            base: 'xx-large',
+            lg:'xxx-large'
+        }} fontWeight='bold'>
           {genreName ? genreName : ''} Games
         </Text>
       </Heading>

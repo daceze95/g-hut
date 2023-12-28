@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   CardBody,
   Flex,
@@ -9,22 +8,21 @@ import {
 } from '@chakra-ui/react';
 import { Game } from '../hooks/useGames';
 import { getOptimizedImage } from '../services/getOptimizedImage';
+import PlatformIcons from './PlatformIcons';
 
-interface Props {
+export interface gameProps {
   game: Game;
 }
 
-const GameCard = ({ game }: Props) => {
+
+const GameCard = ({ game }: gameProps) => {
   return (
     <Card flexGrow={1}>
       <Image src={getOptimizedImage(game.background_image)} alt={game.name} />
       <CardBody p='1' boxShadow='none'>
         <Flex flex='1' rounded='none' px='0.5em' direction='column' gap='3'>
-          <Box color='blue.600' fontSize='2xl'>
-            $450
-          </Box>
+          <PlatformIcons game={game} />
           <Heading size='md'>{game.name}</Heading>
-
           <Text>
             This sofa is perfect for modern tropical spaces, baroque inspired
             spaces, earthy toned spaces and for people who love a chic design
