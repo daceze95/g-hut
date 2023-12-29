@@ -1,7 +1,8 @@
-import { HStack, Image, List, ListItem, Text } from '@chakra-ui/react';
+import { HStack, Image, ListItem, Text } from '@chakra-ui/react';
 import useGenres, { Genre } from '../hooks/useGenres';
 import { getOptimizedImage } from '../services/getOptimizedImage';
 import GenreListSkeleton from './GenreListSkeleton';
+import GenreListContainer from './GenreListContainer';
 
 interface Props {
   getGenre: (genre: Genre) => void;
@@ -13,7 +14,7 @@ const GenreList = ({ getGenre, selectedGenre }: Props) => {
   const skeletons = [1, 2, 3, 4, 5, 6];
   if (error) return;
   return (
-    <List paddingRight='5'>
+    <GenreListContainer>
       {genres.length && (
         <Text fontSize='x-large' fontWeight='bold' mb='2'>
           Genre
@@ -40,7 +41,7 @@ const GenreList = ({ getGenre, selectedGenre }: Props) => {
           </HStack>
         </ListItem>
       ))}
-    </List>
+    </GenreListContainer>
   );
 };
 

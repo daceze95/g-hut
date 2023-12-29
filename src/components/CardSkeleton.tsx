@@ -2,7 +2,7 @@ import { Card, CardBody, Skeleton, Stack } from '@chakra-ui/react';
 
 const CardSkeleton = () => {
   return (
-    <Card>
+    <Card w='300px'>
       <CardBody p='0'>
         <Skeleton height='200px' />
         <Stack my='3' spacing='3'>

@@ -1,19 +1,20 @@
 import {
   HStack,
-  ListItem,
   Skeleton,
-  SkeletonText,
+  Spacer
 } from '@chakra-ui/react';
+import GenreListContainer from './GenreListContainer';
 
 const GenreListSkeleton = () => {
 
   return (
-        <ListItem py='5px'>
-          <HStack>
-            <Skeleton boxSize='48px' borderRadius='8' />
-            <SkeletonText height='20px' />
-          </HStack>
-        </ListItem>
+    <GenreListContainer py='5px'>
+      <HStack>
+        <Skeleton boxSize='48px' borderRadius='8' />
+        <Spacer />
+        <Skeleton height='20px' />
+      </HStack>
+    </GenreListContainer>
   );
 };
 
