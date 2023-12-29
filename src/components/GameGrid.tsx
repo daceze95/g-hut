@@ -38,6 +38,7 @@ const GameGrid = ({ genreName }: genreNameProps) => {
           lg: 3,
           xl: 4,
         }}
+        pb='5'
         spacing={10}>
         {isLoading &&
           skeletons.map((skeleton) => (
