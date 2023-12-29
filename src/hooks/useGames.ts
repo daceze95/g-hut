@@ -1,10 +1,12 @@
 import useFetchData from "./useFetchData";
+import { Genre } from "./useGenres";
 
-export interface Platform{
-    platform:{
-    id: number;
-    name: string;
-}}
+export interface Platform {
+    platform: {
+        id: number;
+        name: string;
+    }
+}
 export interface Game {
     id: number;
     name: string;
@@ -13,6 +15,6 @@ export interface Game {
     metacritic: number
 }
 
-const useGames = () => useFetchData<Game>('/games')
+const useGames = (genre: Genre | null) => useFetchData<Game>('/games', { params: { genres: genre?.id} }, [`${genre?.id}`])
 
 export default useGames

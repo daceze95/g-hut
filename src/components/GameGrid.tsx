@@ -11,8 +11,11 @@ export interface genreNameProps {
   genreName: Genre | null ;
   usePlatformName?: string;
 }
+
+
+
 const GameGrid = ({ genreName }: genreNameProps) => {
-  const { response: games, error, isLoading } = useGames();
+  const { response: games, error, isLoading } = useGames(genreName);
   const [usePlatformName, setUsePlatformName] = useState('');
   const skeletons = [1, 2, 3, 4, 5, 6];
   const getPlatformName = (name: string) => {
