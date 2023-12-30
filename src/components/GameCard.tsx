@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   CardBody,
   Flex,
@@ -14,6 +13,7 @@ import { getOptimizedImage } from '../utils/getOptimizedImage';
 import PlatformIcons from './PlatformIcons';
 import MetacriticBadge from './MetacriticBadge';
 import Rating from './Rating';
+import GameCardGenreList from './GameCardGenreList';
 
 export interface gameProps {
   game: Game;
@@ -37,25 +37,7 @@ const GameCard = ({ game }: gameProps) => {
                 {game.released}
               </Text>
             </HStack>
-            <HStack justify='space-between'>
-              <Text>Genres:</Text>
-              <Box>
-                {game.genres.map((genre) => (
-                  <Text
-                    as='text'
-                    key={genre.id}
-                    fontSize='small'
-                    color='gray.500'
-                    cursor='pointer'
-                    _hover={{ textDecoration: 'underline' }}>
-                    {genre.name}
-                    {genre.id === game.genres[game.genres.length - 1].id
-                      ? ''
-                      : ', '}
-                  </Text>
-                ))}
-              </Box>
-            </HStack>
+            <GameCardGenreList genres={game.genres}/>
             <Rating rating={game.rating_top} />
           </Stack>
         </Flex>

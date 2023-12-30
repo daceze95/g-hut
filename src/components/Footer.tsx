@@ -8,7 +8,12 @@ const Footer = () => {
       display='flex'
       alignItems='center'
       justifyContent='center'>
-      <Text as='a' cursor='pointer'>&copy; Arinze Ezeokwuegbu 2023</Text>
+      <Text
+        as='a'
+        cursor='pointer'
+        href='https://www.linkedin.com/in/arinze-ezeokwuegbu/'>
+        &copy; Arinze Ezeokwuegbu 2023
+      </Text>
     </Box>
   );
 };
