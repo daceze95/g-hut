@@ -14,7 +14,6 @@ const Home = () => {
   const [usePlatformName, setUsePlatformName] = useState<IDAndNameProps | null >(null);
   const getPlatformName = (platform: IDAndNameProps) => {
     setUsePlatformName(platform);
-    console.log(platform);
   };
 
   const getGenre = (genre: Genre) => {
@@ -28,6 +27,7 @@ const Home = () => {
           genreName={genre}
           usePlatformName={usePlatformName}
           getPlatformName={getPlatformName}
+          getGenre={getGenre}
         />
       }
     />

@@ -27,7 +27,8 @@ const PlatformDropDownList = ({ getPlatformName }: Props) => {
       <MenuButton
         px={4}
         py={2}
-        w='200px'
+        minW='200px'
+        maxW='250px'
         transition='all 0.2s'
         borderRadius='md'
         as={Button}
