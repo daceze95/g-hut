@@ -10,7 +10,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { Game } from '../hooks/useGames';
-import { getOptimizedImage } from '../services/getOptimizedImage';
+import { getOptimizedImage } from '../utils/getOptimizedImage';
 import PlatformIcons from './PlatformIcons';
 import MetacriticBadge from './MetacriticBadge';
 import Rating from './Rating';
@@ -56,7 +56,7 @@ const GameCard = ({ game }: gameProps) => {
                 ))}
               </Box>
             </HStack>
-            <Rating rating={game.rating_top}/>
+            <Rating rating={game.rating_top} />
           </Stack>
         </Flex>
       </CardBody>

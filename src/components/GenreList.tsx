@@ -1,6 +1,6 @@
 import { HStack, Image, ListItem, Text } from '@chakra-ui/react';
 import useGenres, { Genre } from '../hooks/useGenres';
-import { getOptimizedImage } from '../services/getOptimizedImage';
+import { getOptimizedImage } from '../utils/getOptimizedImage';
 import GenreListSkeleton from './GenreListSkeleton';
 import GenreListContainer from './GenreListContainer';
 
