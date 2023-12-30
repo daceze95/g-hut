@@ -10,14 +10,14 @@ import { Genre } from '../hooks/useGenres';
 import { IDAndNameProps } from '../pages/Home';
 export interface genreNameProps {
   genreName: Genre | null;
-  usePlatformName?: IDAndNameProps;
+  usePlatformName: IDAndNameProps | null;
   getPlatformName: (platform: IDAndNameProps) => void;
 }
 
 
 
 const GameGrid = ({ genreName, usePlatformName, getPlatformName }: genreNameProps) => {
-  const { response: games, error, isLoading } = useGames(genreName);
+  const { response: games, error, isLoading } = useGames(genreName, usePlatformName);
   const skeletons = [1, 2, 3, 4, 5, 6];
   if (error)
     return (

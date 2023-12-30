@@ -4,7 +4,7 @@ import { IDAndNameProps } from '../pages/Home';
 
 interface GameHeaderProps {
   genreName: Genre | null;
-  usePlatformName?: IDAndNameProps;
+  usePlatformName: IDAndNameProps | null;
 }
 
 const GameHeader = ({ genreName, usePlatformName }: GameHeaderProps) => {
@@ -17,8 +17,15 @@ const GameHeader = ({ genreName, usePlatformName }: GameHeaderProps) => {
             lg: 'xxx-large',
           }}
           fontWeight='bold'>
-          {`${usePlatformName?.name !== null ? usePlatformName?.name : ''} ${
-            genreName?.name !== null && genreName?.name !== undefined ? genreName?.name : ''
+          {`${
+            usePlatformName?.name !== null &&
+            usePlatformName?.name !== undefined
+              ? usePlatformName?.name
+              : ''
+          } ${
+            genreName?.name !== null && genreName?.name !== undefined
+              ? genreName?.name
+              : ''
           } Games`}
         </Text>
       </Heading>

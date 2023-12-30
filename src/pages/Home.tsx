@@ -11,7 +11,7 @@ export interface IDAndNameProps {
 
 const Home = () => {
   const [genre, setGenre] = useState<Genre | null>(null);
-  const [usePlatformName, setUsePlatformName] = useState<IDAndNameProps>({id: 0, name:''});
+  const [usePlatformName, setUsePlatformName] = useState<IDAndNameProps | null >(null);
   const getPlatformName = (platform: IDAndNameProps) => {
     setUsePlatformName(platform);
     console.log(platform);

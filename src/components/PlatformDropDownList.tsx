@@ -12,25 +12,16 @@ import { useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 import { iconMap } from '../constant';
 import { IDAndNameProps } from '../pages/Home';
+import usePlatforms from '../hooks/usePlatforms';
 
 interface Props {
   getPlatformName: (platform: IDAndNameProps) => void;
 }
 
 const PlatformDropDownList = ({ getPlatformName }: Props) => {
+  const { response: platformNames, error } = usePlatforms();
   const [pName, setPName] = useState('');
-  //The id is based on parent_platforms
-  const platformNames = [
-    { id: 1, name: 'PC' },
-    { id: 2, name: 'PlayStation' },
-    { id: 3, name: 'Xbox' },
-    { id: 5, name: 'Apple Macintosh' },
-    { id: 4, name: 'iOS' },//id not verified
-    { id: 8, name: 'Android' },//id not verified
-    { id: 7, name: 'Nintendo' },
-    { id: 6, name: 'Linux' },
-    // { id: 14, name: 'Web' },
-  ];
+  if(error) return;
   return (
     <Menu>
       <MenuButton
