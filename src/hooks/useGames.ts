@@ -12,7 +12,10 @@ export interface Game {
     name: string;
     background_image: string;
     parent_platforms: Platform[];
-    metacritic: number
+    metacritic: number;
+    released: string;
+    genres: {id:number, name: string}[];
+    rating_top: number;
 }
 
 const useGames = (genre: Genre | null) => useFetchData<Game>('/games', { params: { genres: genre?.id} }, [`${genre?.id}`])
