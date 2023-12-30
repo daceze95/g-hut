@@ -1,8 +1,13 @@
 import { Box, Heading, Text } from '@chakra-ui/react';
-import { genreNameProps } from './GameGrid';
+import { Genre } from '../hooks/useGenres';
+
+interface GameHeaderProps {
+  genreName: Genre | null;
+  usePlatformName?: string;
+}
 
 
-const GameHeader = ({ genreName, usePlatformName }: genreNameProps) => {
+const GameHeader = ({ genreName, usePlatformName }: GameHeaderProps) => {
   return (
     <Box mb='5'>
       <Heading>
@@ -12,7 +17,8 @@ const GameHeader = ({ genreName, usePlatformName }: genreNameProps) => {
             lg: 'xxx-large',
           }}
           fontWeight='bold'>
-          {usePlatformName && usePlatformName} {genreName?.name && genreName.name} Games
+          {usePlatformName && usePlatformName}{' '}
+          {genreName?.name && genreName.name} Games
         </Text>
       </Heading>
     </Box>

@@ -18,15 +18,17 @@ interface Props {
 
 const PlatformDropDownList = ({ getPlatformName }: Props) => {
   const [pName, setPName] = useState('');
+  //The id is based on parent_platforms
   const platformNames = [
-    'PC',
-    'PlayStation',
-    'Xbox',
-    'Apple Macintosh',
-    'iOS',
-    'Android',
-    'Nintendo',
-    'Linux',
+    { id: 1, name: 'PC' },
+    { id: 2, name: 'PlayStation' },
+    { id: 3, name: 'Xbox' },
+    { id: 5, name: 'Apple Macintosh' },
+    { id: 4, name: 'iOS' },//id not verified
+    { id: 8, name: 'Android' },//id not verified
+    { id: 7, name: 'Nintendo' },
+    { id: 6, name: 'Linux' },
+    // { id: 14, name: 'Web' },
   ];
   return (
     <Menu>
@@ -55,11 +57,11 @@ const PlatformDropDownList = ({ getPlatformName }: Props) => {
       <MenuList>
         {platformNames.map((platformName) => (
           <MenuItem
-            key={platformName}
+            key={platformName.id}
             onClick={() => (
-              getPlatformName(platformName), setPName(platformName)
+              getPlatformName(platformName.name), setPName(platformName.name)
             )}>
-            {platformName}
+            {platformName.name}
           </MenuItem>
         ))}
       </MenuList>

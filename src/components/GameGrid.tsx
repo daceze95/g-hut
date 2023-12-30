@@ -5,22 +5,19 @@ import CardSkeleton from './CardSkeleton';
 import GameCardContainer from './GameCardContainer';
 import GameHeader from './GameHeader';
 import PlatformDropDownList from './PlatformDropDownList';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Genre } from '../hooks/useGenres';
 export interface genreNameProps {
   genreName: Genre | null ;
   usePlatformName?: string;
+  getPlatformName: (name: string) => void;
 }
 
 
 
-const GameGrid = ({ genreName }: genreNameProps) => {
+const GameGrid = ({ genreName, usePlatformName, getPlatformName }: genreNameProps) => {
   const { response: games, error, isLoading } = useGames(genreName);
-  const [usePlatformName, setUsePlatformName] = useState('');
   const skeletons = [1, 2, 3, 4, 5, 6];
-  const getPlatformName = (name: string) => {
-    setUsePlatformName(name);
-  };
   if (error)
     return (
       <Box textAlign='center'> An error occurred please refresh the page</Box>
