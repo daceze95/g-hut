@@ -11,9 +11,10 @@ import {
 import { useState } from 'react';
 import { BsChevronDown } from 'react-icons/bs';
 import { iconMap } from '../constant';
+import { IDAndNameProps } from '../pages/Home';
 
 interface Props {
-  getPlatformName: (name: string) => void;
+  getPlatformName: (platform: IDAndNameProps) => void;
 }
 
 const PlatformDropDownList = ({ getPlatformName }: Props) => {
@@ -59,7 +60,7 @@ const PlatformDropDownList = ({ getPlatformName }: Props) => {
           <MenuItem
             key={platformName.id}
             onClick={() => (
-              getPlatformName(platformName.name), setPName(platformName.name)
+              getPlatformName(platformName), setPName(platformName.name)
             )}>
             {platformName.name}
           </MenuItem>

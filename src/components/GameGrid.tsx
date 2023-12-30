@@ -7,10 +7,11 @@ import GameHeader from './GameHeader';
 import PlatformDropDownList from './PlatformDropDownList';
 // import { useState } from 'react';
 import { Genre } from '../hooks/useGenres';
+import { IDAndNameProps } from '../pages/Home';
 export interface genreNameProps {
-  genreName: Genre | null ;
-  usePlatformName?: string;
-  getPlatformName: (name: string) => void;
+  genreName: Genre | null;
+  usePlatformName?: IDAndNameProps;
+  getPlatformName: (platform: IDAndNameProps) => void;
 }
 
 

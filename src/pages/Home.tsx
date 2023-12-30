@@ -4,11 +4,17 @@ import GenreList from '../components/GenreList';
 import Layout from '../components/Layout/Layout';
 import { Genre } from '../hooks/useGenres';
 
+export interface IDAndNameProps {
+  id: number;
+  name: string;
+}
+
 const Home = () => {
   const [genre, setGenre] = useState<Genre | null>(null);
-  const [usePlatformName, setUsePlatformName] = useState('');
-  const getPlatformName = (name: string) => {
-    setUsePlatformName(name);
+  const [usePlatformName, setUsePlatformName] = useState<IDAndNameProps>({id: 0, name:''});
+  const getPlatformName = (platform: IDAndNameProps) => {
+    setUsePlatformName(platform);
+    console.log(platform);
   };
 
   const getGenre = (genre: Genre) => {
